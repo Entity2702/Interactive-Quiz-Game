@@ -157,6 +157,10 @@ margin: 0px;
  background-color: rgba(38, 182, 227, 1);
 }
 
+.ansbtn.selected:hover{
+ background-color: rgba(38, 182, 227, 1);
+}
+
 .wrong{
  color: rgba(217, 0, 0, 1);
  border-color: rgba(217, 0, 0, 1);
@@ -169,7 +173,7 @@ margin: 0px;
  background-color: rgba(0, 181, 18, 0.2);
 }
 
-#submit-btn{
+#submit-btn, #next-btn{
  font-size: 32px;
  font-weight: 600;
  background-color: rgba(38, 182, 227, 1);
@@ -178,11 +182,11 @@ margin: 0px;
  border-radius: 10px;
 }
 
-#submit-btn:hover{
+#submit-btn:hover, #next-btn:hover{
  box-shadow: 0px 0px 10px 0px rgba(38, 182, 227, 1);
 }
 
-#submit-btn:disabled{
+#submit-btn:disabled, #submit-btn:hover:disabled{
  background: rgba(201, 201, 201, 1);
 }
 
@@ -193,7 +197,7 @@ margin: 0px;
  width: 100%;
 }
 
-#end-screen p{
+#score-screen p{
  font-size: 96px;
  margin-top: 120px;
  margin-bottom: 60px;
