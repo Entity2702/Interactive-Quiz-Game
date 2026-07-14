@@ -41,13 +41,13 @@
     <button id="ans4" class="ansbtn" onclick="selectAnswer('ans4')">answer</button>
    </section>
 
-   <button id="submit-btn" disabled>SUBMIT</button>
-   <button id="next-btn" class = "hidden">NEXT</button>
+   <button id="submit-btn" disabled onclick="submit()">SUBMIT</button>
+   <button id="next-btn" class = "hidden" onclick="next()">NEXT</button>
   </section>
 
   <section id="score-screen" class="hidden">
    <p>Your score is ...!</p>
-   <button id="again">Start<br>Again</button>
+   <button id="again" onclick="startAgain()">Start<br>Again</button>
   </section>
   
   <script src="questions.js"></script>
