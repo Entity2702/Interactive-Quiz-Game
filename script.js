@@ -1,16 +1,26 @@
 let score = 0;
 let questionNumber = 0;
+const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const answers = [1, 2, 3, 4];
 
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const scoreScreen = document.getElementById("score-screen");
-const answerButtons = document.getElementsByClassName("ansbtn");
-const question = document.querySelector("#question p");
+const question = document.querySelector("#question h2");
 const submitButton = document.getElementById("submit-btn");
 const nextButton = document.getElementById("next-btn");
-const yourScore = document.querySelector("#score-screen p");
+const yourScore = document.querySelector("#score-screen h2");
 const startAgainButton = document.getElementById("again");
-const progressNodes = document.getElementsByClassName("quiz-node");
+
+const quizNodesContainer = document.getElementById("quiz-nodes");
+const answerButtonsContainer = document.getElementById("answers");
+
+quizNodesContainer.innerHTML = steps.map(step => `<div class="quiz-node" data-node>${step}</div>`).join("");
+answerButtonsContainer.innerHTML = answers.map(answer => `<button id="ans${answer}" class="ansbtn" onclick="selectAnswer('ans${answer}')" data-ansbtn>answer</button>`).join("");
+
+
+const answerButtons = document.querySelectorAll("[data-ansbtn]");
+const quizNodes = document.querySelectorAll("[data-node]");
 
 function shuffle(array) {
   let currentIndex = array.length;
@@ -114,14 +124,14 @@ function next(){
  if(document.querySelector(".correct") != null) document.querySelector(".correct").classList.remove("correct");
  if(document.querySelector(".wrong") != null) document.querySelector(".wrong").classList.remove("wrong");
  enableAnswerButtons();
- if(questionNumber<10){
+ if(questionNumber<9){
   questionNumber++;
   loadQuestion();
-  toggleSubmitButton();
  }
  else{
   endGame();
  }
+ toggleSubmitButton();
  submitButton.classList.remove("hidden");
  nextButton.classList.add("hidden");
 }
@@ -140,7 +150,7 @@ function startAgain(){
 }
 
 function resetNodes(){
- for(const node of progressNodes){
+ for(const node of quizNodes){
   if(node.classList.contains("prev-node")) node.classList.remove("prev-node");
   if(node.classList.contains("current-node")) node.classList.remove("current-node");
   if(!node.classList.contains("next-node")) node.classList.add("next-node");
@@ -149,13 +159,13 @@ function resetNodes(){
 
 function nextNode(){
  if(questionNumber == 0){
-  progressNodes[questionNumber].classList.remove("next-node");
-  progressNodes[questionNumber].classList.add("current-node");
+  quizNodes[questionNumber].classList.remove("next-node");
+  quizNodes[questionNumber].classList.add("current-node");
  }
  else{
-  progressNodes[questionNumber].classList.remove("next-node");
-  progressNodes[questionNumber].classList.add("current-node");
-  progressNodes[questionNumber-1].classList.remove("current-node");
-  progressNodes[questionNumber-1].classList.add("prev-node");
+  quizNodes[questionNumber].classList.remove("next-node");
+  quizNodes[questionNumber].classList.add("current-node");
+  quizNodes[questionNumber-1].classList.remove("current-node");
+  quizNodes[questionNumber-1].classList.add("prev-node");
  }
 }

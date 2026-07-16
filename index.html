@@ -10,48 +10,38 @@
   <title>Interactive Quiz Game</title>
  </head>
  <body>
-  <section id="start-screen" class="">
-   <button id="start-btn" onclick="startGame()">Start The Quiz!</button>
-  </section>
+  <main>
 
-  <section id="quiz-screen" class="hidden">
-   <section id="progress">
-    <div id="Rectangle1"></div>
-    <div id="quiz-nodes">
-     <div class="quiz-node prev-node">1</div>
-     <div class="quiz-node prev-node">2</div>
-     <div class="quiz-node prev-node">3</div>
-     <div class="quiz-node prev-node">4</div>
-     <div class="quiz-node current-node">5</div>
-     <div class="quiz-node next-node">6</div>
-     <div class="quiz-node next-node">7</div>
-     <div class="quiz-node next-node">8</div>
-     <div class="quiz-node next-node">9</div>
-     <div class="quiz-node next-node">10</div>
-    </div>
+   <section id="start-screen">
+    <button id="start-btn" onclick="startGame()" aria-label="start game button">Start The Quiz!</button>
    </section>
 
-   <section id="question">
-    <p>questionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestionquestion</p>
+
+   <section id="quiz-screen" class="hidden">
+    <header id="progress" aria-label="progress bar">
+     <div id="Rectangle1"></div>
+     <div id="quiz-nodes"></div>
+    </header>
+
+    <section id="question" aria-label="question" aria-live="polite">
+     <h2>question</h2>
+    </section>
+
+    <section id="answers" aria-label="answers" aria-live="polite"></section>
+
+    <button id="submit-btn" disabled onclick="submit()" aria-label="submit button">SUBMIT</button>
+    <button id="next-btn" class = "hidden" onclick="next()" aria-label="next button">NEXT</button>
    </section>
 
-   <section id="answers">
-    <button id="ans1" class="ansbtn" onclick="selectAnswer('ans1')">answer</button>
-    <button id="ans2" class="ansbtn" onclick="selectAnswer('ans2')">answer</button>
-    <button id="ans3" class="ansbtn" onclick="selectAnswer('ans3')">answer</button>
-    <button id="ans4" class="ansbtn" onclick="selectAnswer('ans4')">answer</button>
+
+   <section id="score-screen" class="hidden">
+    <h2>Your score is ...!</h2>
+    <button id="again" onclick="startAgain()">Start<br>Again</button>
    </section>
+   
+   <script src="questions.js"></script>
+   <script src="script.js"></script>
 
-   <button id="submit-btn" disabled onclick="submit()">SUBMIT</button>
-   <button id="next-btn" class = "hidden" onclick="next()">NEXT</button>
-  </section>
-
-  <section id="score-screen" class="hidden">
-   <p>Your score is ...!</p>
-   <button id="again" onclick="startAgain()">Start<br>Again</button>
-  </section>
-  
-  <script src="questions.js"></script>
-  <script src="script.js"></script>
+  </main>
  </body>
 </html>

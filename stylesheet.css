@@ -1,8 +1,28 @@
+:root{
+ --blue: rgba(38, 182, 227, 1);
+ --blue-trans: rgba(38, 182, 227, 0.2);
+ --red: rgba(217, 0, 0, 1);
+ --red-trans: rgba(217, 0, 0, 0.2);
+ --green: rgba(0, 181, 18, 1);
+ --green-trans: rgba(0, 181, 18, 0.2);
+ --grey: rgba(201, 201, 201, 1);
+ --spacing-1: 20px;
+ --spacing-2: 30px;
+ --spacing-3: 40px;
+ --spacing-4: 60px;
+ --spacing-5: 89px;
+ --spacing-6: 120px;
+ --spacing-7: 130px;
+
+}
+
+
 * {
 font-family: 'Poppins';
 color: #ffffff;
 font-weight: 400;
 margin: 0px;
+padding: 0px;
 }
 
 
@@ -31,9 +51,9 @@ button:disabled{
  width: 90%;
  max-width: 579px;
  aspect-ratio: 1/1;
- font-size: clamp(40px, 16vw, 96px);
- background-color: rgba(38, 182, 227, 1);
- box-shadow: 0px 0px 40px 0px rgba(38, 182, 227, 1);
+ font-size: 96px;
+ background-color: var(--blue);
+ box-shadow: 0px 0px 40px 0px var(--blue);
  border:none;
  cursor: pointer;
 }
@@ -46,8 +66,8 @@ button:disabled{
 }
 
 #progress{
- margin-top: 40px;
- margin-bottom: 40px;
+ margin-top: var(--spacing-3);
+ margin-bottom: var(--spacing-3);
  height: 50px;
  width: 100vw;
  position: relative;
@@ -60,7 +80,7 @@ button:disabled{
  width: 100%;
  height: 2px;
  top: 50%;
- background: rgba(201, 201, 201, 1);
+ background: var(--grey);
  left: 0;
  z-index: 1;
 }
@@ -83,40 +103,40 @@ button:disabled{
 }
 
 .prev-node{
- border-color: rgba(201, 201, 201, 1);
+ border-color: var(--grey);
  border-width: 2px;
  border-style: solid;
- color: rgba(201, 201, 201, 1);
+ color: var(--grey);
  background-color: #ffffff;
 }
 
 .current-node{
- background-color: rgba(38, 182, 227, 1);
- box-shadow: 0px 0px 10px 0px rgba(38, 182, 227, 1);
+ background-color: var(--blue);
+ box-shadow: 0px 0px 10px 0px var(--blue);
  border:none;
- color: rgb(255, 255, 255);
+ color: #ffffff;
 }
 
 .next-node{
- border-color: rgba(38, 182, 227, 1);
+ border-color: var(--blue);
  border-width: 2px;
  border-style: solid;
- color: rgba(38, 182, 227, 1);
+ color: var(--blue);
  background-color: #ffffff;
 }
 
 #question{
- margin-bottom: 60px;
+ margin-bottom: var(--spacing-4);
  width: 100%;
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: rgba(38, 182, 227, 1);
+ background-color: var(--blue);
  padding: 50px 130px 50px 130px;
  box-sizing: border-box;
 }
 
-#question p{
+#question h2{
  font-size: 32px;
  overflow-wrap: break-word;
  max-width: 100%;
@@ -125,21 +145,20 @@ button:disabled{
 #answers{
  display: grid;
  grid-template: "ans1 ans2" auto "ans3 ans4" auto / auto auto;
- gap: 40px 60px;
- margin-bottom: 60px;
+ gap: var(--spacing-3) var(--spacing-4);
+ margin-bottom: var(--spacing-4);
 }
 
 .ansbtn{
  font-size: 24px;
- border-color: rgba(38, 182, 227, 1);
+ border-color: var(--blue);
  background-color: #ffffff;
  width: 560px;
  border-radius: 10px;
  border-width: 1px;
  padding: 30px 20px 30px 20px;
  text-align: left;
- color: rgba(38, 182, 227, 1);
- font-weight: 400;
+ color: var(--blue);
  border-style: solid;
 }
 
@@ -160,45 +179,45 @@ button:disabled{
 }
 
 .ansbtn:hover{
- background-color: rgba(38, 182, 227, 0.2);
+ background-color: var(--blue-trans);
 }
 
 .selected{
  color: #ffffff;
- background-color: rgba(38, 182, 227, 1);
+ background-color: var(--blue);
 }
 
 .ansbtn.selected:hover{
- background-color: rgba(38, 182, 227, 1);
+ background-color: var(--blue);
 }
 
 .wrong{
- color: rgba(217, 0, 0, 1);
- border-color: rgba(217, 0, 0, 1);
- background-color: rgba(217, 0, 0, 0.2);
+ color: var(--red);
+ border-color: var(--red);
+ background-color: var(--red-trans);
 }
 
 .correct{
- color: rgba(0, 181, 18, 1);
- border-color: rgba(0, 181, 18, 1);
- background-color: rgba(0, 181, 18, 0.2);
+ color: var(--green);
+ border-color: var(--green);
+ background-color: var(--green-trans);
 }
 
 #submit-btn, #next-btn{
  font-size: 32px;
  font-weight: 600;
- background-color: rgba(38, 182, 227, 1);
+ background-color: var(--blue);
  border: none;
  padding: 12px 40px 12px 40px;
  border-radius: 10px;
 }
 
 #submit-btn:hover, #next-btn:hover{
- box-shadow: 0px 0px 10px 0px rgba(38, 182, 227, 1);
+ box-shadow: 0px 0px 10px 0px var(--blue);
 }
 
 #submit-btn:disabled{
- background: rgba(201, 201, 201, 1);
+ background: var(--grey);
 }
 
 #score-screen{
@@ -208,22 +227,21 @@ button:disabled{
  width: 100%;
 }
 
-#score-screen p{
- font-size: clamp(32px, 12vw, 96px);
- margin-top: 120px;
- margin-bottom: 60px;
- color: rgba(38, 182, 227, 1);
+#score-screen h2{
+ font-size: 96px;
+ margin-top: var(--spacing-6);
+ margin-bottom: var(--spacing-4);
+ color: var(--blue);
 }
 
 #again{
- width: 90%;
- max-width: 395px;
+ width: 395px;
  aspect-ratio: 1/1;
- box-shadow: 0px 0px 40px 0px rgba(38, 182, 227, 1);
- background-color: rgba(38, 182, 227, 1);
+ box-shadow: 0px 0px 40px 0px var(--blue);
+ background-color: var(--blue);
  border-radius: 50%;
  border: none;
- font-size: clamp(40px, 16vw, 64px);
+ font-size: 64px;
 }
 
 @media (max-width: 1200px){
@@ -231,7 +249,7 @@ button:disabled{
   display: grid;
   grid-template: "ans1" auto "ans2" auto "ans3" auto "ans4" auto / 100%;
   gap: 20px;
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-3);
  }
 
  .ansbtn{
@@ -258,7 +276,13 @@ button:disabled{
 
  #progress{
   height: 30px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+ }
+
+ #score-screen h2{
+  font-size: 48px;
+  margin-top: var(--spacing-7);
+  margin-bottom: var(--spacing-5);
  }
 }
